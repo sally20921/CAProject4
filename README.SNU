@@ -1,0 +1,52 @@
+#--------------------------------------------------------------
+# 
+#  4190.308 Computer Architecture (Fall 2018)
+#
+#  Project #4: Enhancing the Sequential Y86-64 Processor
+#
+#  November 26, 2018
+#
+#  Jin-Soo Kim (jinsoo.kim@snu.ac.kr)
+#  Systems Software & Architecture Laboratory
+#  Dept. of Computer Science and Engineering
+#  Seoul National University
+#  http://csl.snu.ac.kr
+#
+#--------------------------------------------------------------
+
+
+This project is based on the materials developed by Textbook authors.
+You can download the original Y86-64 tools and documentation from
+http://csapp.cs.cmu.edu/3e/sim.tar
+
+We have slightly modified the original toolset to make you focus on the
+sequential implementation of Y86-64 architecture and to facilitate the
+automatic grading.
+
+The followings summarize some of the changes made:
+
+- Makefile has been modified for "make handin".
+- The original misc/isa.c file is divided into misc/isa.c and misc/isacore.c
+- The original seq/ssim.c file is divided into seq/ssim.c and seq/ssimcore.c
+- misc/Makefile and seq/Makefile have been changed to reflect the addition of 
+  misc/isacore.c and seq/ssimcore.c files.
+- Some necessary modifications have been made in misc/yas-grammar.lex, misc/isa.h,
+  and misc/isa.c files to support mulq/divq, and rmmovb/mrmovb instructions.
+- A new control signal called 'mem_byte' has been added to the data memory. 
+  The mem_byte signal should be set to 1 for rmmovb and mrmovb instructions.
+- seq/seq-std.hcl, seq/seq+-std.hcl, and seq/seq+.tcl files are removed (not used
+  in this project).
+- Several test programs that use mulq/divq and rmmovb/mrmovb instructions are added
+  in the ./y86-code directory.
+- The ./pipe directory has been removed (not used in this project).
+- A new option '-s' is added in the seq/ssim.c file for printing output for
+  automatic grading server (enabled by -DSNU flag in seq/Makefile).
+
+
+Have fun!
+
+Jin-Soo Kim (jinsoo.kim@snu.ac.kr)
+
+---
+4190.308: Computer Architecture
+Fall 2018

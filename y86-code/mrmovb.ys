@@ -1,0 +1,25 @@
+#--------------------------------------------------------------
+# 
+#  4190.308 Computer Architecture (Fall 2018)
+#
+#  Project #4: Enhancing the Sequential Y86-64 Processor
+#
+#  November 26, 2018
+#
+#  Jin-Soo Kim (jinsoo.kim@snu.ac.kr)
+#  Systems Software & Architecture Laboratory
+#  Dept. of Computer Science and Engineering
+#  Seoul National University
+#  http://csl.snu.ac.kr
+#
+#--------------------------------------------------------------
+
+# Test program for mrmovb instruction 
+
+  irmovq 	$0x100, %rdx
+  irmovq 	$0xcafebabe12345678, %rax
+  rmmovq	%rax, (%rdx)
+  mrmovb	2(%rdx), %rbx			
+  mrmovb	4(%rdx), %rcx		# should zero-extended
+  halt
+  
